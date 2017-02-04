@@ -2,28 +2,32 @@
 
 class Render {
 
-	public function AdminBar($userpermission) {
+	public function SiteHead($fileloc) {
+		include($fileloc."templates/SiteHead.php");
+	}
+
+	public function AdminBar($userpermission, $fileloc) {
 		require 'Database.php';
 
 		switch ($userpermission) {
 			case '0':
 				// Nothing
-				echo file_get_contents("templates/UserBar.php");
+				include($fileloc."templates/UserBar.php");
 				break;
-			
+
 			case '1':
 				// Nothing
-				echo file_get_contents("templates/UserBar.php");
+				include($fileloc."templates/UserBar.php");
 				break;
 
 			case '2':
 				// Render Mod Bar
-				echo file_get_contents("templates/ModBar.php");
+				include($fileloc."templates/ModBar.php");
 				break;
 
 			case '3':
 				// Render Admin Bar
-				echo file_get_contents("templates/AdminBar.php");
+				include($fileloc."templates/AdminBar.php");
 				break;
 
 			default:
@@ -65,7 +69,7 @@ class Render {
 		$RenderLatestPost = "<a href='post/".$LatestPost['id']."'>".$LatestPost['title']."</a><br>";
 		$RenderLatestPost .= "<a href='user/".$LatestPost['author']."'>
 							 ".$LatestPost['author']."</a><span>
-							  - 
+							  -
 							 ".$Format::TimeSince($LatestPost['timestamp'])."</span>";
 
 		echo $RenderLatestPost;

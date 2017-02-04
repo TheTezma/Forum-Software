@@ -4,7 +4,7 @@
     $username = "root"; 
     $password = ""; 
     $host = "localhost"; 
-    $dbname = "framework"; 
+    $dbname = "Forum"; 
 
     // UTF-8 is a character encoding scheme that allows you to conveniently store 
     // a wide varienty of special characters, like ¢ or €, in your database. 
